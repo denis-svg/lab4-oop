@@ -8,7 +8,7 @@ class Dot: public Block{
         bool is_eaten;
         std::string path2;
     public:
-        Dot(float row, float col, std::string path1, std::string path2, sf::RenderWindow* window) : Block(row, col, path1, window){
+        Dot(int row, int col, std::string path1, std::string path2, sf::RenderWindow* window) : Block(row, col, path1, window){
             is_eaten = false;
             this->path2 = path2;
         }

@@ -5,6 +5,6 @@
 
 class Wall: public Block{
     public:
-        Wall(float row, float col, std::string path, sf::RenderWindow* window) : Block(row, col, path, window){
+        Wall(int row, int col, std::string path, sf::RenderWindow* window) : Block(row, col, path, window){
         }
 };

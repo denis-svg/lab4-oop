@@ -2,8 +2,8 @@
 
 class Point{
     private:
-        float x;
-        float y;
+        int x;
+        int y;
     public:
         Point(float x, float y){
             this->x = x;
