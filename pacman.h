@@ -24,7 +24,7 @@ class PacMan : public Entity{
         }
 
         // create the animation when moving
-        void movedLeft(){
+        void setLeft(){
             if (initial_state){
                 this->texture.loadFromFile(paths[0]);
                 this->initial_state = false;
@@ -33,7 +33,7 @@ class PacMan : public Entity{
                 this->initial_state = true;
             }
         }
-        void movedRight(){
+        void setRight(){
             if (initial_state){
                 this->texture.loadFromFile(paths[1]);
                 this->initial_state = false;
@@ -42,7 +42,7 @@ class PacMan : public Entity{
                 this->initial_state = true;
             }
         }
-        void movedUp(){
+        void setUp(){
             if (initial_state){
                 this->texture.loadFromFile(paths[2]);
                 this->initial_state = false;
@@ -51,7 +51,7 @@ class PacMan : public Entity{
                 this->initial_state = true;
             }
         }
-        void movedDown(){
+        void setDown(){
             if (initial_state){
                 this->texture.loadFromFile(paths[3]);
                 this->initial_state = false;

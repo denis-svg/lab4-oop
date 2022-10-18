@@ -32,20 +32,28 @@ class Game{
             }
             if (event.type == sf::Event::EventType::KeyPressed){
                 if (event.key.code == sf::Keyboard::A){
-                    pac_man->moveLeft();
-                    pac_man->movedLeft();
+                    if (pac_man->canMoveLeft()){
+                        pac_man->moveLeft();
+                        pac_man->setLeft();
+                    }
                 }
                 if (event.key.code == sf::Keyboard::D){
-                    pac_man->moveRight();
-                    pac_man->movedRight();
+                    if (pac_man->canMoveRight()){
+                        pac_man->moveRight();
+                        pac_man->setRight();
+                    }
                 }
                 if (event.key.code == sf::Keyboard::W){
-                    pac_man->moveUp();
-                    pac_man->movedUp();
+                    if (pac_man->canMoveUp()){
+                        pac_man->moveUp();
+                        pac_man->setUp();
+                    }
                 }
                 if (event.key.code == sf::Keyboard::S){
-                    pac_man->moveDown();
-                    pac_man->movedDown();
+                    if (pac_man->canMoveDown()){
+                        pac_man->moveDown();
+                        pac_man->setDown();
+                    }
                 }
             }
         }
