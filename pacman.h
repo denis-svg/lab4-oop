@@ -1,12 +1,13 @@
 #pragma once
 #include "entity.h"
+#include "maze.h"
 
 class PacMan : public Entity{
     public:
         std::string *paths;
         std::string *paths1;
         bool initial_state;
-        PacMan(int row, int col, sf::RenderWindow* window) : Entity(row, col, std::string("images/right.png"), window){
+        PacMan(int row, int col, sf::RenderWindow* window, Maze *maze) : Entity(row, col, std::string("images/right.png"), window, maze){
             // initializing paths
             this->paths =  new std::string[4];
             this->paths[0] = std::string("images/left.jpg");
