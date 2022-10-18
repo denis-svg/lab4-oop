@@ -19,7 +19,7 @@ class Maze{
         }
 
         void resetMaze(){
-            this->freeMemory();
+            this->freeMaze();
             std::string myText;
 
             // Read from the walls file
@@ -58,7 +58,7 @@ class Maze{
             }
         }
 
-        void freeMemory(){
+        void freeMaze(){
             // free wall
             std::vector<std::string> keys_wall;
             for ( const auto &wall : walls ) {

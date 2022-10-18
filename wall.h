@@ -7,4 +7,5 @@ class Wall: public Block{
     public:
         Wall(int row, int col, std::string path, sf::RenderWindow* window) : Block(row, col, path, window){
         }
+
 };

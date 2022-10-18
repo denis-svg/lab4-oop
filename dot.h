@@ -12,6 +12,7 @@ class Dot: public Block{
             is_eaten = false;
             this->path2 = path2;
         }
+
         void setEaten(){
             is_eaten = true;
             this->texture.loadFromFile(path2);

@@ -16,7 +16,8 @@ class Block{
             this->location = Point(col, row);
             this->setPosition(row, col);
         }
-        
+
+
         void draw(){
             this->window->draw(this->sprite);
         }

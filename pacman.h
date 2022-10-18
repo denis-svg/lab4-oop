@@ -6,9 +6,19 @@ class PacMan : public Entity{
         std::string *paths;
         std::string *paths1;
         bool initial_state;
-        PacMan(int row, int col, std::string paths[4], std::string paths1[4], sf::RenderWindow* window) : Entity(row, col, paths[1], window){
-            this->paths = paths;
-            this->paths1 = paths1;
+        PacMan(int row, int col, sf::RenderWindow* window) : Entity(row, col, std::string("images/right.png"), window){
+            // initializing paths
+            this->paths =  new std::string[4];
+            this->paths[0] = std::string("images/left.jpg");
+            this->paths[1] = std::string("images/right.png");
+            this->paths[2] = std::string("images/up.png");
+            this->paths[3] = std::string("images/down.png");
+
+            this->paths1 =  new std::string[4];
+            this->paths1[0] = std::string("images/left1.jpg");
+            this->paths1[1] = std::string("images/right1.png");
+            this->paths1[2] = std::string("images/up1.png");
+            this->paths1[3] = std::string("images/down1.png");
             this->initial_state = true;
         }
 

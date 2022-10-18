@@ -5,7 +5,7 @@ class Point{
         int x;
         int y;
     public:
-        Point(float x, float y){
+        Point(int x, int y){
             this->x = x;
             this->y = y;
         }
@@ -13,10 +13,10 @@ class Point{
             this->x = 0;
             this->y = 0;
         }
-        void setRow(float row){
+        void setRow(int row){
             this->y = row;
         }
-        void setCol(float col){
+        void setCol(int col){
             this->x = col;
         }
         float getRow(){
