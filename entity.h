@@ -17,8 +17,11 @@ class Entity : public Block{
         }
 
         bool canMoveUp(){
-            if(this->x != this->getCol() * 20)
+            if(this->x != this->getCol() * 20){
                 return false;
+            }
+            if(this->y > this->getRow() * 20)
+                return true;
             if (maze->isWall(this->getRow() - 1, this->getCol())){
                 return false;
             }
@@ -28,6 +31,8 @@ class Entity : public Block{
         bool canMoveDown(){
             if(this->x != this->getCol() * 20)
                 return false;
+            if(this->y < this->getRow() * 20)
+                return true;
             if (maze->isWall(this->getRow() + 1, this->getCol())){
                 return false;
             }
@@ -37,6 +42,8 @@ class Entity : public Block{
         bool canMoveLeft(){
             if(this->y != this->getRow() * 20)
                 return false;
+            if(this->x > this->getCol() * 20)
+                return true;
             if (maze->isWall(this->getRow(), this->getCol() - 1)){
                 return false;
             }
@@ -46,6 +53,8 @@ class Entity : public Block{
         bool canMoveRight(){
             if(this->y != this->getRow() * 20)
                 return false;
+            if(this->x < this->getCol() * 20)
+                return true;
             if (maze->isWall(this->getRow(), this->getCol() + 1)){
                 return false;
             }

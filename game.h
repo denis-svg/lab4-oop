@@ -14,7 +14,7 @@ class Game{
             this->window = window;
 
             this->maze = new Maze(window);
-            this->pac_man = new PacMan(4, 0, window, maze);
+            this->pac_man = new PacMan(1, 1, window, maze);
         }
 
         void draw(){
