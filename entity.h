@@ -9,21 +9,16 @@ class Entity : public Block{
     int x;
     int y;
     Maze *maze;
-    bool changed_row;
-    bool changed_col;
     public:
         Entity(int row, int col, std::string path, sf::RenderWindow* window, Maze *maze) : Block(row, col, path, window){
             this->x = col * 20;
             this->y = row * 20;
             this->maze = maze;
-            this->changed_row = false;
-            this->changed_col = false;
         }
 
         bool canMoveUp(){
-            if (this->changed_col){
+            if(this->x != this->getCol() * 20)
                 return false;
-            }
             if (maze->isWall(this->getRow() - 1, this->getCol())){
                 return false;
             }
@@ -31,9 +26,8 @@ class Entity : public Block{
         }
 
         bool canMoveDown(){
-            if (this->changed_col){
+            if(this->x != this->getCol() * 20)
                 return false;
-            }
             if (maze->isWall(this->getRow() + 1, this->getCol())){
                 return false;
             }
@@ -41,9 +35,8 @@ class Entity : public Block{
         }
 
         bool canMoveLeft(){
-            if (this->changed_row){
+            if(this->y != this->getRow() * 20)
                 return false;
-            }
             if (maze->isWall(this->getRow(), this->getCol() - 1)){
                 return false;
             }
@@ -51,9 +44,8 @@ class Entity : public Block{
         }
 
         bool canMoveRight(){
-            if (this->changed_row){
+            if(this->y != this->getRow() * 20)
                 return false;
-            }
             if (maze->isWall(this->getRow(), this->getCol() + 1)){
                 return false;
             }
@@ -64,11 +56,9 @@ class Entity : public Block{
             this->y -= speed;
             if (this->y == (this->location.getRow() - 1) * 20){
                 this->setPosition(this->getRow() - 1, this->getCol());
-                this->changed_row = false;
             }
             else{
                 this->sprite.setPosition(this->getCol() * 20, this->y);
-                this->changed_row = true;
             }
         }
 
@@ -76,10 +66,8 @@ class Entity : public Block{
             this->y += speed;
             if (this->y == (this->location.getRow() + 1) * 20){
                 this->setPosition(this->getRow() + 1, this->getCol());
-                this->changed_row = false;
             }
             else{
-                this->changed_row = true;
                 this->sprite.setPosition(this->getCol() * 20, this->y);
             }
         }
@@ -88,10 +76,8 @@ class Entity : public Block{
             this->x -= speed;
             if (this->x == (this->location.getCol() - 1) * 20){
                 this->setPosition(this->getRow(), this->getCol() - 1);
-                this->changed_col = false;
             }
             else{
-                this->changed_col = true;
                 this->sprite.setPosition(this->x, this->getRow() * 20);
             }
         }
@@ -100,10 +86,8 @@ class Entity : public Block{
             this->x += speed;
             if (this->x == (this->location.getCol() + 1) * 20){
                 this->setPosition(this->getRow(), this->getCol() + 1);
-                this->changed_col = false;
             }
             else{
-                this->changed_col = true;
                 this->sprite.setPosition(this->x, this->getRow() * 20);
             }
         }
